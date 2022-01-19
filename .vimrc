@@ -1,5 +1,17 @@
 "my shit lol
 
+" Doxygen
+
+let g:DoxygenToolkit_briefTag_pre="@Synopsis      "   
+let g:DoxygenToolkit_paramTag_pre="@Param         "   
+let g:DoxygenToolkit_returnTag   ="@Returns       "   
+let g:DoxygenToolkit_blockHeader="============================================================================"   
+let g:DoxygenToolkit_blockFooter="============================================================================"        
+let g:DoxygenToolkit_authorName="XIU"   
+let g:DoxygenToolkit_fileTag = "@filename      "
+
+
+
 nnoremap <C-c> :!g++ -o  %:r.out % -std=c++11<Enter>
 nnoremap <C-x> :!./%:r.out
 
@@ -89,6 +101,8 @@ set nrformats-=octal
 "----------------------------------------------------------------
 " List of plugins installed
 call plug#begin('~/.vim/plugged')
+	" View Images in Vim
+	Plug 'ashisha/image.vim'
 
 	" Statusbar
 	Plug 'vim-airline/vim-airline'
@@ -115,10 +129,10 @@ call plug#begin('~/.vim/plugged')
 	Plug 'junegunn/fzf.vim'
 
 	" Deoplete, specific for Vim8
-	if !has("nvim")
+	" if !has("nvim")
 		Plug 'roxma/nvim-yarp'
 		Plug 'roxma/vim-hug-neovim-rpc'
-	endif
+	" endif
 
 	" Autocomplete
 	Plug 'Shougo/deoplete.nvim', { 'commit': '17ffeb9' }
@@ -640,8 +654,9 @@ endif
 set mouse=a
 
 " Highlight cursor line and cursor column
-set cursorline
-set nocursorcolumn
+" set cursorline
+" hi CursorLine   cterm=underline ctermbg=darkred ctermfg=white
+" set nocursorcolumn
 
 " Always show the status line
 set laststatus=2
@@ -941,7 +956,7 @@ let g:f3msg = 'Toggle line numbers.'
 nnoremap <silent> <F3> :set number!<CR>:echo g:f3msg<CR>
 
 " Set relative line numbers
-set relativenumber
+" set relativenumber
 
 let g:f4msg = 'Toggle relative line numbers.'
 nnoremap <silent> <F4> :set norelativenumber!<CR>:echo g:f4msg<CR>
